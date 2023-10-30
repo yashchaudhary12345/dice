@@ -3,16 +3,14 @@
 
 double calculateProbability(int numDice, int targetNumber) {
     if (numDice <= 0) {
-        return 0.0;  // No dice, so probability is zero.
+        return 0.0;
     }
     if (targetNumber < 1 || targetNumber > 6) {
         return 0.0;  // Invalid target number.
     }
 
-    int totalOutcomes = pow(6, numDice);  // Total possible outcomes when rolling 'numDice' dice.
-    int favorableOutcomes = 0;  // Number of outcomes where 'targetNumber' is rolled.
-
-    // Recursive function to calculate the number of favorable outcomes.
+    int totalOutcomes = pow(6, numDice);
+    int favorableOutcomes = 0; 
     void calculateFavorableOutcomes(int currentDice, int currentSum) {
         if (currentDice == 0) {
             if (currentSum == targetNumber) {
@@ -33,7 +31,6 @@ double calculateProbability(int numDice, int targetNumber) {
 int main() {
     int numDice, targetNumber;
 
-    // Input the number of dice and the target number.
     printf("Enter the number of dice: ");
     scanf("%d", &numDice);
     printf("Enter the target number (1 to 6): ");
@@ -46,7 +43,6 @@ int main() {
 
     double probability = calculateProbability(numDice, targetNumber);
 
-    // Display the probability.
     printf("The probability of getting a %d with %d dice is: %.6lf\n", targetNumber, numDice, probability);
 
     return 0;
